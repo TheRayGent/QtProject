@@ -11,28 +11,28 @@ using json = nlohmann::json;
 Widget::Widget(QWidget *parent) : QWidget(parent), ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    setWindowTitle("ScriptApp");
 
     QFlowLayout *frame_layout = new QFlowLayout();
-    ui->frame->setLayout(frame_layout);
+    ui->scrollAreaWidgetContents_2->setLayout(frame_layout);
 
     std::ifstream configfile("config.json");
-    json data = json::parse(configfile);
+    json config = json::parse(configfile);
     configfile.close();
 
-    if (data.size()>0){
-        for (auto &[key, value] : data.items()){
+    if (config.size()>0){
+        for (auto &[key, value] : config.items()){
             frame_layout->addWidget(new ScriptFrame(key.c_str(), value.get<std::string>()));
         }
     }
+    frame_layout->addWidget(new addScriptFrame(config, frame_layout));
+    //frame_layout->takeAt(1)->widget()->~QWidget();
 }
 
 Widget::~Widget()
 {
     delete ui;
 }
-
-void Widget::Pushbutton() {}
-void Widget::SwapItemsInLayout() {}
 
 // {
 //     QLayout *layout = (ui->scrollAreaWidgetContents->layout());

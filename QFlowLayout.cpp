@@ -31,18 +31,6 @@ void QFlowLayout::addItem(QLayoutItem *item)
     m_itemList.append(item);
 }
 //! [3]
-void QFlowLayout::insertWidget(int index, QWidget *widget)
-{
-    if (index < 0 || index > m_itemList.size())
-    {
-        qWarning() << "FlowLayout::insertWidget: Invalid index";
-        return;
-    }
-
-    QLayoutItem *item = new QWidgetItem(widget);
-    m_itemList.insert(index, item);
-    invalidate();
-}
 
 //! [4]
 int QFlowLayout::horizontalSpacing() const

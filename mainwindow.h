@@ -20,10 +20,6 @@ public:
 
 private:
     Ui::Widget *ui;
-
-private slots:
-    void Pushbutton();
-    void SwapItemsInLayout();
 };
 
 #endif // MAINWINDOW_H
