@@ -1,5 +1,6 @@
 {
   "Test Script": "C:/Program Files (x86)/Steam/steam.exe",
   "Test Script2": "C:/Users/EgorT/Downloads/zapret-discord-youtube-1.8.1/general (ALT2).bat",
-  "Test Script3": "dir"
+  "Test Script3": "dir",
+  "test": "dir"
 }
